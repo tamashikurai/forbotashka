@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7efe9" />
+  <title>Для самой любимой ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#000;--paper:#101010;--ink:#f5f2ef;--muted:#aaa29d;--accent:#d46a82;--accent-dark:#ef9aac;--line:rgba(255,255,255,.10);--shadow:0 28px 80px rgba(0,0,0,.55)}
+    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}body{font-family:Manrope,system-ui,sans-serif;color:var(--ink);background:#000}
+    button{font:inherit}.noise{pointer-events:none;position:fixed;inset:0;z-index:60;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E")}
+    .welcome{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 18% 16%,rgba(164,61,86,.22),transparent 30%),radial-gradient(circle at 82% 84%,rgba(107,55,72,.16),transparent 32%),#050505;transition:opacity .8s ease,visibility .8s ease}.welcome.hide{opacity:0;visibility:hidden}
+    .note{width:min(700px,94vw);min-height:min(590px,82vh);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:clamp(34px,7vw,74px);background:rgba(18,18,18,.96);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:34px;box-shadow:var(--shadow);position:relative;overflow:hidden;transform:scale(1);transition:transform .9s cubic-bezier(.2,.75,.25,1)}.welcome.hide .note{transform:scale(.97) translateY(-12px)}
+    .note:after{content:'♡';position:absolute;right:30px;top:12px;font:700 82px/1 'Cormorant Garamond',serif;color:rgba(168,63,86,.1);transform:rotate(14deg)}
+    .kicker,.eyebrow{font-size:11px;font-weight:700;letter-spacing:.23em;text-transform:uppercase;color:var(--accent-dark)}h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif}.note h1{font-size:clamp(62px,9vw,108px);line-height:.8;font-weight:600;letter-spacing:-.045em;margin:20px 0 18px}.note p{max-width:520px;color:var(--muted);line-height:1.9;margin:0}.open-btn{margin-top:34px;border:0;border-radius:999px;padding:17px 30px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer;box-shadow:0 18px 42px rgba(168,63,86,.28);transition:.25s}.open-btn:hover{transform:translateY(-3px)}.hint{margin-top:15px;color:#9a827b;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+
+    .chat-shell{width:min(520px,92vw);height:min(720px,84vh);display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.1);border-radius:30px;background:#111;box-shadow:0 30px 100px rgba(0,0,0,.65);overflow:hidden;position:relative}.chat-topbar{height:76px;padding:12px 18px;display:flex;align-items:center;gap:12px;background:#161616;border-bottom:1px solid rgba(255,255,255,.08)}.avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#7f2c40,#d46a82);color:#fff;font:700 22px 'Cormorant Garamond',serif}.chat-name{font-weight:700;font-size:14px}.online{color:#8e8e8e;font-size:11px;margin-top:2px}.online span{display:inline-block;width:6px;height:6px;background:#63c174;border-radius:50%;margin-right:4px}.chat-body{flex:1;padding:20px 18px;display:flex;flex-direction:column;gap:12px;overflow:hidden;background:radial-gradient(circle at 85% 5%,rgba(212,106,130,.06),transparent 28%),#101010}.chat-date{align-self:center;font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:#6e6e6e;margin-bottom:4px}.msg-row{display:flex}.incoming{justify-content:flex-start}.outgoing{justify-content:flex-end}.outgoing-bubble{border-radius:17px 17px 5px 17px!important;background:#6e2d3e!important;color:#fff!important}.bubble{max-width:82%;padding:12px 16px;border-radius:17px 17px 17px 5px;background:#242424;color:#f3efec;line-height:1.55;font-size:14px;box-shadow:0 8px 18px rgba(0,0,0,.2);animation:bubbleIn .38s ease both}.reply-wrap,.next-wrap{display:flex;justify-content:flex-end;padding-top:3px;margin-top:auto}.reply-btn,.next-chat-btn{border:1px solid rgba(212,106,130,.38);background:#3b1822;color:#ffd8df;border-radius:17px 17px 5px 17px;padding:11px 16px;font-weight:700;font-size:13px;cursor:pointer;transition:.22s}.reply-btn:hover,.next-chat-btn:hover{transform:translateY(-2px);background:#4a1d29}.typing-row{display:flex}.typing{display:flex;gap:4px;padding:11px 13px;border-radius:17px 17px 17px 5px;background:#242424}.typing i{display:block;width:6px;height:6px;border-radius:50%;background:#8b8b8b;animation:typing 1s infinite}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}@keyframes typing{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(-3px);opacity:1}}.hidden{display:none!important}@keyframes bubbleIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}.chat-footer{height:62px;padding:10px 14px;background:#161616;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;color:#686868;font-size:12px}.fake-send{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#2b2b2b;color:#8f8f8f;font-size:17px}.code-overlay{position:absolute;inset:0;z-index:10;display:grid;place-items:center;padding:22px;background:rgba(3,3,3,.72);backdrop-filter:blur(12px);animation:fadeIn .35s ease both}.code-card{width:min(430px,90vw);padding:36px 28px;text-align:center;border-radius:28px;background:#1a1a1a;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 90px rgba(0,0,0,.7);position:relative}.code-close{position:absolute;right:13px;top:10px;border:0;background:none;color:#888;font-size:26px;cursor:pointer}.code-icon{font-size:28px;margin-bottom:8px}.code-card h2{font-size:50px;line-height:.88;margin:12px 0 16px}.code-card p{color:#969696;font-size:13px;line-height:1.6;margin:0 auto 22px;max-width:320px}.code-boxes{display:flex;gap:8px;justify-content:center}.code-boxes input{width:46px;height:56px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:#111;color:#fff;text-align:center;font-size:22px;font-weight:700;outline:none}.code-boxes input:focus{border-color:#d46a82;box-shadow:0 0 0 3px rgba(212,106,130,.12)}.code-status{font-size:10px;color:#666;letter-spacing:.12em;text-transform:uppercase;margin:12px 0 16px}.code-submit{border:0;border-radius:999px;padding:13px 22px;background:#d46a82;color:#fff;font-weight:800;cursor:pointer;box-shadow:0 14px 30px rgba(212,106,130,.18)}.code-submit:disabled{opacity:.35;cursor:not-allowed}.code-status.error{color:#e78a9e;animation:shake .3s ease}.kiss-emojis{font-size:34px;letter-spacing:.18em;margin:4px 0 24px;filter:drop-shadow(0 8px 20px rgba(212,106,130,.18))}.code-card{padding-top:30px}.code-submit{min-width:48px}.code-boxes{margin-top:6px}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes shake{25%{transform:translateX(-4px)}50%{transform:translateX(4px)}75%{transform:translateX(-2px)}}
+    .app{width:100%;height:100%;opacity:0;transform:translateY(10px);transition:opacity .9s ease .15s,transform .9s ease .15s}.app.ready{opacity:1;transform:none}
+    .top{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:50;width:min(1040px,92vw);display:flex;align-items:center;gap:14px;padding:10px 12px 10px 18px;border:1px solid var(--line);border-radius:999px;background:rgba(18,18,18,.88);backdrop-filter:blur(16px);box-shadow:0 12px 32px rgba(73,44,40,.07)}.brand{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);white-space:nowrap}.bar{height:5px;flex:1;background:rgba(127,44,64,.1);border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;width:10%;background:var(--accent);border-radius:inherit;transition:width .55s cubic-bezier(.2,.75,.25,1)}.count{font-size:12px;color:var(--muted);min-width:45px;text-align:right}
+
+    .viewport{height:100%;width:100%;position:relative;overflow:hidden}.viewport:after{content:'';position:absolute;inset:0;z-index:4;pointer-events:none;background:rgba(10,10,10,.18);backdrop-filter:blur(0);opacity:0;transition:opacity .28s ease,backdrop-filter .28s ease}.viewport.switching:after{opacity:1;backdrop-filter:blur(3px)}.page{position:absolute;inset:0;display:grid;place-items:center;padding:100px 6vw 70px;opacity:0;visibility:hidden;pointer-events:none;transform:translateX(60px) scale(.985);filter:blur(14px);transition:opacity .42s ease,transform .58s cubic-bezier(.2,.75,.25,1),filter .42s ease,visibility 0s linear .42s;z-index:0}.page.active{opacity:1;visibility:visible;pointer-events:auto;transform:none;filter:blur(0);z-index:3;transition:opacity .42s ease,transform .58s cubic-bezier(.2,.75,.25,1),filter .42s ease,visibility 0s linear 0s}.page.active .copy,.page.active .photo-wrap{animation:contentIn .42s ease both}.page.active .copy{animation-delay:.05s}.page.active .photo-wrap{animation-delay:.02s}@keyframes contentIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    .page-inner{width:min(1160px,100%);height:min(760px,calc(100vh - 170px));display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.9fr);gap:clamp(35px,6vw,90px);align-items:center}.page.reverse .page-photo-wrap{order:2}.page.reverse .page-copy{order:1}
+    .copy{max-width:620px}.num{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}.copy h2{font-size:clamp(58px,7vw,94px);line-height:.86;letter-spacing:-.04em;font-weight:600;margin:17px 0 22px}.copy p{color:var(--muted);font-size:clamp(15px,1.5vw,18px);line-height:1.9;max-width:580px}.meta{margin-top:24px;font-size:11px;color:#9a827b;letter-spacing:.12em;text-transform:uppercase}
+    .photo-wrap{position:relative;width:min(530px,100%);justify-self:center;aspect-ratio:4/5}.photo{position:absolute;inset:0;border-radius:30px;background:linear-gradient(140deg,#ead7cf,#bd7883 56%,#7b3144);box-shadow:var(--shadow);overflow:hidden;border:1px solid rgba(255,255,255,.75)}.photo:before{content:attr(data-label);position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.96);font-size:15px;font-weight:700;letter-spacing:.18em;text-align:center;padding:20px}.photo:after{content:'';position:absolute;inset:0;background:linear-gradient(125deg,rgba(255,255,255,.24),transparent 34%,rgba(48,13,23,.22))}.tag{position:absolute;bottom:-18px;left:-22px;padding:15px 18px;background:var(--paper);border:1px solid var(--line);box-shadow:0 15px 30px rgba(68,40,35,.11);transform:rotate(-5deg);font:500 22px/1 'Cormorant Garamond',serif;color:#6d5751;z-index:3}.mini-heart{position:absolute;color:rgba(168,63,86,.38);font-size:30px;animation:float 4.5s ease-in-out infinite}.a{top:5%;right:-2%}.b{bottom:12%;right:6%;font-size:20px;animation-delay:-1s}.c{top:18%;left:-4%;font-size:17px;animation-delay:-2s}@keyframes float{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-14px) rotate(8deg)}}
+
+    .intro,.final{display:grid;place-items:center;text-align:center}.intro .content,.final .content{width:min(800px,100%);padding:50px clamp(25px,6vw,80px);border-radius:34px;background:rgba(18,18,18,.94);backdrop-filter:blur(18px);border:1px solid var(--line);box-shadow:var(--shadow)}.intro h2,.final h2{font-size:clamp(62px,9vw,108px);line-height:.82;margin:18px 0 22px;font-weight:600;letter-spacing:-.045em}.intro p,.final p{max-width:650px;margin:0 auto;color:var(--muted);line-height:1.9}.begin{margin-top:28px;border:0;border-radius:999px;padding:14px 22px;background:var(--accent);color:#fff;cursor:pointer;font-weight:700}
+    .final .content{position:relative;overflow:hidden}.final h2{margin-top:22px}.signature{margin-top:34px;font:500 34px/1 'Cormorant Garamond',serif;color:var(--accent-dark)}.hearts{pointer-events:none;position:absolute;inset:0;overflow:hidden}.heart{position:absolute;bottom:-30px;color:rgba(168,63,86,.22);animation:rise linear infinite}@keyframes rise{to{transform:translateY(-120vh) rotate(25deg);opacity:0}}
+
+    .nav{position:fixed;z-index:55;left:50%;bottom:24px;transform:translateX(-50%);display:flex;align-items:center;gap:10px}.nav button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(18,18,18,.94);backdrop-filter:blur(12px);cursor:pointer;font-size:18px;color:var(--ink);box-shadow:0 10px 28px rgba(73,44,40,.08);transition:.25s}.nav button:hover{transform:translateY(-3px);background:#202020}.nav .dots{display:flex;gap:6px;padding:0 7px}.dot{width:6px;height:6px;border:0!important;padding:0!important;background:rgba(127,44,64,.2)!important}.dot.active{background:var(--accent)!important;transform:scale(1.35)}
+    .tip{position:fixed;right:22px;bottom:29px;z-index:54;color:#9a827b;font-size:10px;letter-spacing:.1em;text-transform:uppercase}.page-switch{animation:pageIn .58s cubic-bezier(.2,.75,.25,1)}@keyframes pageIn{from{opacity:0;transform:translateX(70px) scale(.985);filter:blur(16px)}to{opacity:1;transform:none;filter:blur(0)}}
+
+    @media(max-width:820px){.top{top:10px;width:94vw}.brand{display:none}.page{padding:95px 20px 90px}.page-inner,.page.reverse .page-inner{height:auto;display:flex;flex-direction:column;justify-content:center;gap:26px}.page.reverse .page-photo-wrap,.page.reverse .page-copy{order:unset}.copy{width:100%;text-align:center}.copy h2{font-size:clamp(48px,14vw,72px);margin:12px 0 14px}.copy p{font-size:14px;line-height:1.75;max-width:650px;margin:auto}.meta{margin-top:13px}.photo-wrap{width:min(350px,76vw);aspect-ratio:4/5}.tag{bottom:-14px;left:-8px;font-size:19px}.tip{display:none}.nav{bottom:16px}.nav .dots{display:none}.nav button{width:46px;height:46px}.intro .content,.final .content{padding:38px 24px}.intro h2,.final h2{font-size:clamp(53px,14vw,80px)}}
+    @media(max-height:700px) and (min-width:821px){.page-inner{height:calc(100vh - 150px)}.photo-wrap{width:min(400px,40vw)}.copy h2{font-size:clamp(50px,6vw,78px)}}
+  </style>
+</head>
+<body>
+<div class="welcome" id="welcome">
+  <div class="chat-shell">
+    <div class="chat-topbar">
+      <div class="avatar">♡</div>
+      <div><div class="chat-name">💕💕</div><div class="online"><span></span> онлайн</div></div>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-date">сегодня</div>
+      <div class="msg-row incoming"><div class="bubble">привет жаным, как дела?? 💗</div></div>
+      <div class="typing-row" id="typing1"><div class="typing"><i></i><i></i><i></i></div></div>
+      <div class="reply-wrap" id="replyWrap"><button class="reply-btn" id="replyBtn">отличнооо 💕</button></div>
+      <div class="msg-row outgoing hidden" id="sentReply"><div class="bubble outgoing-bubble">отличнооо 💕 <span style="font-size:10px;opacity:.65;margin-left:4px">✓✓</span></div></div>
+      <div class="msg-row incoming hidden" id="msg2"><div class="bubble">жанымжаным, если поцелуешь, то скажу тебе код, чтобы пройти дальше :p 😚</div></div>
+      <div class="typing-row hidden" id="typing2"><div class="typing"><i></i><i></i><i></i></div></div>
+      <div class="next-wrap hidden" id="nextWrap"><button class="next-chat-btn" id="nextChatBtn">дальше →</button></div>
+    </div>
+    
+  </div>
+  <div class="code-overlay hidden" id="codeOverlay">
+    <div class="code-card">
+      <div class="kiss-emojis">😘😘😘</div>
+      <div class="code-boxes" id="codeBoxes">
+        <input inputmode="numeric" maxlength="1" aria-label="цифра 1"><input inputmode="numeric" maxlength="1" aria-label="цифра 2"><input inputmode="numeric" maxlength="1" aria-label="цифра 3"><input inputmode="numeric" maxlength="1" aria-label="цифра 4"><input inputmode="numeric" maxlength="1" aria-label="цифра 5"><input inputmode="numeric" maxlength="1" aria-label="цифра 6">
+      </div>
+      <div class="code-status hidden" id="codeStatus"></div>
+      <button class="code-submit" id="codeSubmit">→</button>
+    </div>
+  </div>
+</div>
+<div class="app" id="app">
+  <div class="noise"></div>
+  <div class="top"><div class="brand">для тебя ❤️</div><div class="bar"><span id="bar"></span></div><div class="count" id="count">01 / 10</div></div>
+  <div class="viewport" id="viewport">
+    <section class="page active intro" data-index="0"><div class="content"><div class="eyebrow">маленькая история о нас</div><h2>Для самой<br><em>любимой.</em></h2><p>Десять кадров. Десять воспоминаний. И всё равно этого мало, чтобы рассказать, как много ты для меня значишь.</p><button class="begin" id="beginBtn">Начнём →</button></div></section>
+
+    <section class="page" data-index="1"><div class="page-inner"><div class="copy"><div class="num">01 / 10</div><h2>Та самая улыбка</h2><p>Здесь будет твой настоящий текст про эту фотографию. Например: почему именно этот момент заставляет тебя улыбаться каждый раз, когда ты его вспоминаешь.</p><div class="meta">фото 01 · твои слова</div></div><div class="photo-wrap"><div class="photo" data-label="ФОТО 01"></div><div class="tag">момент №1</div></div></div></section>
+    <section class="page reverse" data-index="2"><div class="page-inner"><div class="copy"><div class="num">02 / 10</div><h2>Когда всё было просто</h2><p>Место для тёплой истории о самом обычном дне, который оказался совсем не обычным, потому что вы были вместе.</p><div class="meta">фото 02 · маленькое воспоминание</div></div><div class="photo-wrap"><div class="photo" data-label="ФОТО 02"></div><div class="tag">наш вечер</div></div></div></section>
+    <section class="page" data-index="3"><div class="page-inner"><div class="copy"><div class="num">03 / 10</div><h2>Ты даже не знаешь</h2><p>Здесь можно рассказать про одну деталь в ней — взгляд, жест, привычку или улыбку — которую ты особенно любишь.</p><div class="meta">фото 03 · то, что замечаю только я</div></div><div class="photo-wrap"><div class="photo" data-label="ФОТО 03"></div><div class="tag">любимый кадр</div></div></div></section>
+    <section class="page reverse" data-index="4"><div class="page-inner"><div class="copy"><div class="num">04 / 10</div><h2>Я помню этот день</h2><p>Самое место для конкретной истории: где вы были, что смешного произошло, что она сказала и почему этот день остался в памяти.</p><div class="meta">фото 04 · тот самый день</div></div><div class="photo-wrap"><div class="photo" data-label="ФОТО 04"></div><div class="tag">тот день</div></div></div></section>
+    <section class="page" data-index="5"><div class="page-inner"><div class="copy"><div class="num">05 / 10</div><h2>Половина пути</h2><p>Пять из десяти. Здесь хорошо оставить короткое признание — одну мысль, которую хочется сказать ей прямо сейчас.</p><div class="meta">фото 05 · 05 / 10</div></div><div class="photo-wrap"><div class="photo" data-label="ФОТО 05"></div><div class="tag">пять</div></div></div></section>
+    <section class="page reverse" data-index="6"><div class="page-inner"><div class="copy"><div class="num">06 / 10</div><h2>Просто быть рядом</h2><p>Необязательно ждать большого события. Иногда самое любимое — это просто быть рядом, идти рядом, молчать рядом и смеяться над ерундой.</p><div class="meta">фото 06 · рядом</div></div><div class="photo-wrap"><div class="photo" data-label="ФОТО 06"></div><div class="tag">рядом</div></div></div></section>
+    <section class="page" data-index="7"><div class="page-inner"><div class="copy"><div class="num">07 / 10</div><h2>В тебе есть магия</h2><p>Место для самого красивого комплимента: не общего, а именно твоего — того, который понимаешь только ты.</p><div class="meta">фото 07 · люблю</div></div><div class="photo-wrap"><div class="photo" data-label="ФОТО 07"></div><div class="tag">люблю</div></div></div></section>
+    <section class="page reverse" data-index="8"><div class="page-inner"><div class="copy"><div class="num">08 / 10</div><h2>Из таких деталей</h2><p>Личная шутка, случайный кадр, мем, странная фраза — именно такие мелочи часто становятся вашим маленьким общим миром.</p><div class="meta">фото 08 · только наше</div></div><div class="photo-wrap"><div class="photo" data-label="ФОТО 08"></div><div class="tag">случайный кадр</div></div></div></section>
+    <section class="page" data-index="9"><div class="page-inner"><div class="copy"><div class="num">09 / 10</div><h2>И я всё ещё выбираю тебя</h2><p>Перед финалом можно сказать главное чуть серьёзнее — без красивых оборотов, просто честно и своими словами.</p><div class="meta">фото 09 · почти финал</div></div><div class="photo-wrap"><div class="photo" data-label="ФОТО 09"></div><div class="tag">почти финал</div></div></div></section>
+    <section class="page reverse" data-index="10"><div class="page-inner"><div class="copy"><div class="num">10 / 10</div><h2>А дальше — только больше</h2><p>Последняя фотография перед финальным признанием. Здесь можно оставить обещание новых поездок, новых историй и новых фотографий.</p><div class="meta">фото 10 · последний кадр</div></div><div class="photo-wrap"><div class="photo" data-label="ФОТО 10"></div><div class="tag">последний кадр</div></div></div></section>
+    <section class="page final" data-index="11"><div class="content"><div class="hearts" id="hearts"></div><div class="eyebrow">последняя страница</div><h2>Десяти фотографий<br>мне всё равно мало.</h2><p>Потому что я люблю не только эти десять моментов. Я люблю всё, что было между ними, то, что происходит сейчас, и всё то, что ещё только появится.</p><div class="signature">Твой человек ♥</div></div></section>
+  </div>
+  <div class="nav"><button id="prev" aria-label="Предыдущая">←</button><button id="next" aria-label="Следующая">→</button></div>
+</div>
+<script>
+  const welcome=document.getElementById('welcome'),app=document.getElementById('app'),pages=[...document.querySelectorAll('.page')],bar=document.getElementById('bar'),count=document.getElementById('count');
+  let current=0;
+  const viewport=document.getElementById('viewport');
+  let switchTimer;
+  function render(){
+    pages.forEach((p,i)=>{
+      p.classList.toggle('active',i===current);
+      p.style.zIndex=i===current?'3':'0';
+      if(i===current){p.classList.remove('page-switch');void p.offsetWidth;p.classList.add('page-switch')}
+    });
+    viewport.classList.add('switching');
+    clearTimeout(switchTimer);
+    switchTimer=setTimeout(()=>viewport.classList.remove('switching'),260);
+    const photoPage=Math.min(Math.max(current,1),10);bar.style.width=(photoPage/10*100)+'%';count.textContent=current===0?'00 / 10':current===11?'10 / 10':String(current).padStart(2,'0')+' / 10';document.getElementById('prev').style.opacity=current===0?'.35':'1';document.getElementById('next').style.opacity=current===11?'.35':'1'
+  }
+  function go(n){current=Math.max(0,Math.min(11,n));render()}
+  const replyBtn=document.getElementById('replyBtn'),replyWrap=document.getElementById('replyWrap'),msg2=document.getElementById('msg2'),typing1=document.getElementById('typing1'),typing2=document.getElementById('typing2'),nextWrap=document.getElementById('nextWrap'),codeOverlay=document.getElementById('codeOverlay'),codeClose=document.getElementById('codeClose'),codeSubmit=document.getElementById('codeSubmit'),codeStatus=document.getElementById('codeStatus'),codeInputs=[...document.querySelectorAll('#codeBoxes input')];
+  function revealApp(){app.classList.add('ready');welcome.classList.add('hide');setTimeout(()=>welcome.remove(),850)}
+  replyBtn.addEventListener('click',()=>{
+    if(replyBtn.disabled)return;
+    replyBtn.disabled=true;
+    const sentReply=document.getElementById('sentReply');
+    replyBtn.animate([{transform:'translateY(0) scale(1)',opacity:1},{transform:'translateY(6px) scale(.96)',opacity:.15}],{duration:220,easing:'cubic-bezier(.2,.75,.25,1)',fill:'forwards'});
+    setTimeout(()=>{
+      replyWrap.classList.add('hidden');
+      typing1.classList.add('hidden');
+      sentReply.classList.remove('hidden');
+      sentReply.querySelector('.bubble').animate([{opacity:0,transform:'translateY(10px) scale(.96)'},{opacity:1,transform:'none'}],{duration:320,easing:'cubic-bezier(.2,.75,.25,1)',fill:'both'});
+    },220);
+    setTimeout(()=>{msg2.classList.remove('hidden');typing2.classList.remove('hidden')},560);
+    setTimeout(()=>{typing2.classList.add('hidden');nextWrap.classList.remove('hidden')},1320);
+  });
+  document.getElementById('nextChatBtn').addEventListener('click',()=>{codeOverlay.classList.remove('hidden');setTimeout(()=>codeInputs[0].focus(),120)});
+  if(codeClose) codeClose.addEventListener('click',()=>codeOverlay.classList.add('hidden'));
+  codeInputs.forEach((input,i)=>input.addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'');if(e.target.value&&i<codeInputs.length-1)codeInputs[i+1].focus();codeSubmit.disabled=codeInputs.some(x=>!x.value)}));
+  codeInputs.forEach((input,i)=>input.addEventListener('keydown',e=>{if(e.key==='Backspace'&&!input.value&&i>0)codeInputs[i-1].focus();if(e.key==='Enter'&&!codeSubmit.disabled)codeSubmit.click()}));
+  codeSubmit.disabled=true;
+  codeSubmit.addEventListener('click',()=>{const code=codeInputs.map(x=>x.value).join('');if(code==='090929'){codeStatus.textContent='код принят ♥';codeStatus.classList.remove('error');codeSubmit.textContent='Открываем…';codeSubmit.disabled=true;setTimeout(revealApp,550)}else{codeStatus.textContent='неверный код, жаным 😝';codeStatus.classList.add('error');codeInputs.forEach(x=>{x.value=''});codeSubmit.disabled=true;setTimeout(()=>{codeStatus.classList.remove('error');codeStatus.classList.add('hidden');codeInputs[0].focus()},700)}});
+  document.getElementById('prev').addEventListener('click',()=>go(current-1));document.getElementById('next').addEventListener('click',()=>go(current+1));
+  window.addEventListener('keydown',e=>{if(welcome.isConnected)return;if(e.key==='ArrowRight'||e.key===' ')go(current+1);if(e.key==='ArrowLeft')go(current-1)});
+  let sx=0,sy=0;document.getElementById('viewport').addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});document.getElementById('viewport').addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy))go(current+(dx<0?1:-1))},{passive:true});
+  const hearts=document.getElementById('hearts');for(let i=0;i<16;i++){const s=document.createElement('span');s.className='heart';s.textContent=i%3?'♡':'♥';s.style.left=(Math.random()*100)+'%';s.style.animationDuration=(7+Math.random()*8)+'s';s.style.animationDelay=(-Math.random()*12)+'s';s.style.fontSize=(12+Math.random()*18)+'px';hearts.appendChild(s)}
+  render();
+</script>
+</body>
+</html>
